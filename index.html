@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhotoShare - Современный фото хостинг</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-camera"></i>
+                    <span>PhotoShare</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="#home" class="nav-link active">Главная</a>
+                    <a href="#gallery" class="nav-link">Галерея</a>
+                    <a href="#upload" class="nav-link">Загрузить</a>
+                    <a href="#about" class="nav-link">О нас</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="btn btn-primary" id="loginBtn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Войти
+                    </button>
+                    <button class="btn btn-secondary" id="registerBtn">
+                        <i class="fas fa-user-plus"></i>
+                        Регистрация
+                    </button>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Делитесь своими <span class="highlight">моментами</span> с миром
+                </h1>
+                <p class="hero-description">
+                    Современная платформа для загрузки, хранения и обмена фотографиями. 
+                    Поддерживаем все форматы и устройства.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-large" id="startUploadBtn">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        Начать загрузку
+                    </button>
+                    <button class="btn btn-outline btn-large" id="exploreBtn">
+                        <i class="fas fa-images"></i>
+                        Исследовать галерею
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-grid">
+                    <div class="image-item" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400')"></div>
+                    <div class="image-item" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400')"></div>
+                    <div class="image-item" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400')"></div>
+                    <div class="image-item" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400')"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload-section" id="upload">
+        <div class="container">
+            <div class="section-header">
+                <h2>Загрузите свои фотографии</h2>
+                <p>Поддерживаем JPG, PNG, GIF и другие форматы до 10MB</p>
+            </div>
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-content">
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                    <h3>Перетащите файлы сюда</h3>
+                    <p>или нажмите для выбора файлов</p>
+                    <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+                    <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                        Выбрать файлы
+                    </button>
+                </div>
+                <div class="upload-progress" id="uploadProgress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text">Загрузка... <span id="progressPercent">0%</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Галерея фотографий</h2>
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="nature">Природа</button>
+                    <button class="filter-btn" data-filter="city">Город</button>
+                    <button class="filter-btn" data-filter="portrait">Портреты</button>
+                </div>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Images will be loaded here -->
+            </div>
+            <div class="load-more">
+                <button class="btn btn-outline" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i>
+                    Загрузить еще
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Почему выбирают нас</h2>
+                <p>Современные технологии для ваших фотографий</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Адаптивный дизайн</h3>
+                    <p>Отлично выглядит на всех устройствах и разрешениях экрана</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Безопасность</h3>
+                    <p>Ваши фотографии защищены современными технологиями шифрования</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Быстрое скачивание</h3>
+                    <p>Мгновенный доступ к вашим фотографиям в высоком качестве</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Легкий обмен</h3>
+                    <p>Делитесь фотографиями с друзьями одной ссылкой</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>О PhotoShare</h2>
+                    <p>Мы создали современную платформу для всех, кто любит фотографию. 
+                    Наша миссия - сделать обмен фотографиями простым, быстрым и красивым.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Пользователей</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100K+</span>
+                            <span class="stat-label">Фотографий</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1M+</span>
+                            <span class="stat-label">Загрузок</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-stack">
+                        <div class="stacked-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300')"></div>
+                        <div class="stacked-image" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300')"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-camera"></i>
+                        <span>PhotoShare</span>
+                    </div>
+                    <p>Современная платформа для обмена фотографиями</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#gallery">Галерея</a></li>
+                        <li><a href="#upload">Загрузить</a></li>
+                        <li><a href="#about">О нас</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Поддержка</h4>
+                    <ul>
+                        <li><a href="#">Помощь</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Правила</a></li>
+                        <li><a href="#">Конфиденциальность</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Социальные сети</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PhotoShare. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Вход в систему</h3>
+                <button class="modal-close" id="closeLoginModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Пароль</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Войти</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Регистрация</h3>
+                <button class="modal-close" id="closeRegisterModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Имя</label>
+                        <input type="text" id="registerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Пароль</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPasswordConfirm">Подтвердите пароль</label>
+                        <input type="password" id="registerPasswordConfirm" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Зарегистрироваться</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
