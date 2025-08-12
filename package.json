@@ -1,0 +1,44 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"nodemon --watch src --ext js,ejs --exec node src/server.js\" \"tailwindcss -i public/assets/css/styles.css -o public/assets/css/styles.css --watch\"",
+    "build:css": "tailwindcss -i public/assets/css/styles.css -o public/assets/css/styles.css",
+    "start": "node src/server.js",
+    "test": "echo \"No tests yet\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HR58T4-DJJE/-tetstbot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HR58T4-DJJE/-tetstbot/issues"
+  },
+  "homepage": "https://github.com/HR58T4-DJJE/-tetstbot#readme",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1",
+    "multer": "^2.0.2",
+    "mysql2": "^3.14.3",
+    "sharp": "^0.34.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.0",
+    "daisyui": "^5.0.50",
+    "express-ejs-layouts": "^2.5.1",
+    "nodemon": "^3.1.10",
+    "tailwindcss": "^4.1.11"
+  }
+}

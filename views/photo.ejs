@@ -1,0 +1,25 @@
+<section class="max-w-4xl mx-auto">
+  <div class="card bg-base-100 shadow">
+    <figure class="bg-base-200">
+      <img src="/uploads/original/<%= photo.stored_filename %>" alt="<%= photo.title || photo.original_filename %>" class="max-h-[70vh] w-auto mx-auto"/>
+    </figure>
+    <div class="card-body">
+      <h1 class="card-title"><%= photo.title || 'Без названия' %></h1>
+      <% if (photo.description) { %>
+        <p class="opacity-80"><%= photo.description %></p>
+      <% } %>
+      <div class="flex flex-wrap gap-2 text-sm opacity-70">
+        <span>Файл: <%= photo.original_filename %></span>
+        <span>Размер: <%= Math.round(photo.file_size / 1024) %> КБ</span>
+        <% if (photo.width && photo.height) { %>
+          <span>Разрешение: <%= photo.width %>×<%= photo.height %></span>
+        <% } %>
+        <span>Загружено: <%= new Date(photo.created_at).toLocaleString('ru-RU') %></span>
+      </div>
+      <div class="card-actions justify-end">
+        <a class="btn" href="/">Назад</a>
+        <a class="btn btn-primary" href="/download/<%= photo.id %>">Скачать оригинал</a>
+      </div>
+    </div>
+  </div>
+</section>

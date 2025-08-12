@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* Custom tweaks */
+:root {
+  --rounded-box: 0.75rem;
+  --rounded-btn: 0.5rem;
+}
