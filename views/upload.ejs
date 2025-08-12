@@ -1,0 +1,18 @@
+<section class="max-w-xl mx-auto">
+  <h1 class="text-2xl font-semibold mb-4">Загрузить фото</h1>
+  <form action="/upload" method="post" enctype="multipart/form-data" class="space-y-4">
+    <div class="form-control">
+      <label class="label"><span class="label-text">Фото</span></label>
+      <input type="file" name="photo" accept="image/*" class="file-input file-input-bordered w-full" required />
+    </div>
+    <div class="form-control">
+      <label class="label"><span class="label-text">Заголовок (необязательно)</span></label>
+      <input name="title" class="input input-bordered w-full" placeholder="Название" />
+    </div>
+    <div class="form-control">
+      <label class="label"><span class="label-text">Описание (необязательно)</span></label>
+      <textarea name="description" class="textarea textarea-bordered w-full" placeholder="Короткое описание"></textarea>
+    </div>
+    <button class="btn btn-primary">Загрузить</button>
+  </form>
+</section>

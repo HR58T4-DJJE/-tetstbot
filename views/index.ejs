@@ -1,0 +1,21 @@
+<section class="space-y-4">
+  <h1 class="text-2xl font-semibold">Недавние фото</h1>
+  <% if (!photos || photos.length === 0) { %>
+    <div class="alert">Пока нет загруженных фото. <a class="link" href="/upload">Загрузить</a></div>
+  <% } else { %>
+    <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+      <% photos.forEach(p => { %>
+        <a href="/photo/<%= p.id %>" class="block card bg-base-100 shadow hover:shadow-lg transition">
+          <figure class="aspect-square overflow-hidden">
+            <img src="/uploads/thumbs/<%= p.stored_filename %>" alt="thumb" class="w-full h-full object-cover"/>
+          </figure>
+          <% if (p.title) { %>
+            <div class="card-body py-3">
+              <h2 class="card-title text-sm truncate"><%= p.title %></h2>
+            </div>
+          <% } %>
+        </a>
+      <% }) %>
+    </div>
+  <% } %>
+</section>
