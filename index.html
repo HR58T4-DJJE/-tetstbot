@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termux - Команды и руководство</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-terminal"></i>
+                    <span>Termux Guide</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#commands">Команды</a></li>
+                    <li><a href="#packages">Пакеты</a></li>
+                    <li><a href="#tutorials">Уроки</a></li>
+                    <li><a href="#about">О проекте</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Termux</span> - Терминал для Android
+                </h1>
+                <p class="hero-description">
+                    Мощный эмулятор терминала для Android с поддержкой Linux-команд, 
+                    пакетным менеджером и возможностью разработки прямо на вашем устройстве
+                </p>
+                <div class="hero-buttons">
+                    <a href="#commands" class="btn btn-primary">
+                        <i class="fas fa-play"></i>
+                        Начать изучение
+                    </a>
+                    <a href="#tutorials" class="btn btn-secondary">
+                        <i class="fas fa-book"></i>
+                        Уроки
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="btn-red"></span>
+                            <span class="btn-yellow"></span>
+                            <span class="btn-green"></span>
+                        </div>
+                        <div class="terminal-title">termux@localhost</div>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command">pkg update</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="output">Updating package list...</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command">pkg install git</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="output">Installing git...</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command">git --version</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="output">git version 2.39.0</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="prompt">$</span>
+                            <span class="command">_</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Section -->
+    <section id="commands" class="commands">
+        <div class="container">
+            <div class="section-header">
+                <h2>Основные команды Termux</h2>
+                <p>Изучите самые важные команды для работы с Termux</p>
+            </div>
+            
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="commandSearch" placeholder="Поиск команд...">
+            </div>
+
+            <div class="commands-grid" id="commandsGrid">
+                <!-- Commands will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <div class="section-header">
+                <h2>Пакетный менеджер</h2>
+                <p>Управление пакетами в Termux</p>
+            </div>
+            
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Установка пакетов</h3>
+                    <p>Установка новых программ и утилит</p>
+                    <div class="package-commands">
+                        <code>pkg install [пакет]</code>
+                        <code>apt install [пакет]</code>
+                    </div>
+                </div>
+                
+                <div class="package-card">
+                    <div class="package-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h3>Обновление системы</h3>
+                    <p>Обновление пакетов и системы</p>
+                    <div class="package-commands">
+                        <code>pkg update</code>
+                        <code>pkg upgrade</code>
+                    </div>
+                </div>
+                
+                <div class="package-card">
+                    <div class="package-icon">
+                        <i class="fas fa-trash"></i>
+                    </div>
+                    <h3>Удаление пакетов</h3>
+                    <p>Удаление ненужных программ</p>
+                    <div class="package-commands">
+                        <code>pkg remove [пакет]</code>
+                        <code>apt remove [пакет]</code>
+                    </div>
+                </div>
+                
+                <div class="package-card">
+                    <div class="package-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Поиск пакетов</h3>
+                    <p>Поиск доступных пакетов</p>
+                    <div class="package-commands">
+                        <code>pkg search [запрос]</code>
+                        <code>apt search [запрос]</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorials Section -->
+    <section id="tutorials" class="tutorials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Уроки и руководства</h2>
+                <p>Пошаговые инструкции по настройке и использованию</p>
+            </div>
+            
+            <div class="tutorials-grid">
+                <div class="tutorial-card">
+                    <div class="tutorial-image">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Первоначальная настройка</h3>
+                    <p>Настройка Termux после установки, обновление системы и установка базовых пакетов</p>
+                    <a href="#" class="tutorial-link">Читать урок →</a>
+                </div>
+                
+                <div class="tutorial-card">
+                    <div class="tutorial-image">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Программирование в Termux</h3>
+                    <p>Настройка среды разработки для Python, Node.js, Java и других языков</p>
+                    <a href="#" class="tutorial-link">Читать урок →</a>
+                </div>
+                
+                <div class="tutorial-card">
+                    <div class="tutorial-image">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Серверные приложения</h3>
+                    <p>Запуск веб-серверов, баз данных и других сервисов</p>
+                    <a href="#" class="tutorial-link">Читать урок →</a>
+                </div>
+                
+                <div class="tutorial-card">
+                    <div class="tutorial-image">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Безопасность</h3>
+                    <p>Настройка SSH, настройка файрвола и безопасное использование</p>
+                    <a href="#" class="tutorial-link">Читать урок →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>О проекте Termux</h2>
+                    <p>
+                        Termux - это мощный эмулятор терминала для Android, который предоставляет 
+                        полноценную Linux-среду на вашем мобильном устройстве. С его помощью вы можете 
+                        выполнять команды Linux, устанавливать пакеты, писать код и даже запускать 
+                        серверные приложения.
+                    </p>
+                    <p>
+                        Этот сайт создан для помощи пользователям в освоении Termux, предоставляя 
+                        подробную информацию о командах, пакетах и практические руководства.
+                    </p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Бесплатный и открытый исходный код</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Поддержка большинства Linux-команд</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Встроенный пакетный менеджер</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Возможность разработки на мобильном</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Доступных пакетов</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Linux-команд</div>
+                    </div>
+                        <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Доступность</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Termux Guide</h3>
+                    <p>Ваш путеводитель по миру Termux и Linux-команд на Android</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Разделы</h4>
+                    <ul>
+                        <li><a href="#commands">Команды</a></li>
+                        <li><a href="#packages">Пакеты</a></li>
+                        <li><a href="#tutorials">Уроки</a></li>
+                        <li><a href="#about">О проекте</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Ресурсы</h4>
+                    <ul>
+                        <li><a href="#">Документация</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Сообщество</a></li>
+                        <li><a href="#">Поддержка</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Termux Guide. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
